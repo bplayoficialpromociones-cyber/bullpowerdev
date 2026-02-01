@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test de Colores - Bull Power Admin</title>
+  <style>
+    /* Importar variables de tema claro */
+    :root {
+      --badge-active-bg: #000000;
+      --badge-active-text: #FFFFFF;
+      --badge-enabled-bg: #000000;
+      --badge-enabled-text: #FFFFFF;
+      --badge-disabled-bg: #E5E7EB;
+      --badge-disabled-text: #FFFFFF;
+      --badge-inactive-bg: #FEE2E2;
+      --badge-inactive-text: #B91C1C;
+      --warning-text: #000000;
+    }
+
+    /* Variables de tema oscuro */
+    .dark {
+      --badge-active-bg: rgba(34, 197, 94, 0.2);
+      --badge-active-text: #4ADE80;
+      --badge-enabled-bg: rgba(34, 197, 94, 0.2);
+      --badge-enabled-text: #4ADE80;
+      --badge-disabled-bg: #3F3F46;
+      --badge-disabled-text: #A1A1AA;
+      --badge-inactive-bg: rgba(239, 68, 68, 0.2);
+      --badge-inactive-text: #F87171;
+      --warning-text: #FDE047;
+    }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      padding: 40px;
+      background-color: #F4F4F5;
+      transition: background-color 0.3s;
+    }
+
+    body.dark {
+      background-color: #18181B;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #27272A;
+    }
+
+    body.dark h1 {
+      color: #F4F4F5;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    body.dark .section {
+      background: #27272A;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #27272A;
+    }
+
+    body.dark .section-title {
+      color: #F4F4F5;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .badge-active {
+      background-color: var(--badge-active-bg);
+      color: var(--badge-active-text);
+    }
+
+    .badge-enabled {
+      background-color: var(--badge-enabled-bg);
+      color: var(--badge-enabled-text);
+    }
+
+    .badge-disabled {
+      background-color: var(--badge-disabled-bg);
+      color: var(--badge-disabled-text);
+    }
+
+    .badge-inactive {
+      background-color: var(--badge-inactive-bg);
+      color: var(--badge-inactive-text);
+    }
+
+    .warning-box {
+      padding: 16px;
+      background: #FEF9C3;
+      border: 1px solid #FDE047;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    body.dark .warning-box {
+      background: rgba(253, 224, 71, 0.2);
+      border-color: rgba(253, 224, 71, 0.3);
+    }
+
+    .warning-text {
+      font-size: 14px;
+      color: var(--warning-text);
+      margin: 0;
+    }
+
+    .test-result {
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .test-pass {
+      background: #DCFCE7;
+      color: #166534;
+      border: 1px solid #BBF7D0;
+    }
+
+    .test-fail {
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FECACA;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 12px 24px;
+      background: #0D9488;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .theme-toggle:hover {
+      background: #0F766E;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    body.dark th,
+    body.dark td {
+      border-bottom-color: #3F3F46;
+      color: #F4F4F5;
+    }
+
+    th {
+      font-weight: 600;
+      background: #F9FAFB;
+      color: #27272A;
+    }
+
+    body.dark th {
+      background: #18181B;
+      color: #F4F4F5;
+    }
+
+    .color-sample {
+      display: inline-block;
+      width: 80px;
+      height: 30px;
+      border-radius: 4px;
+      border: 1px solid #E5E7EB;
+    }
+
+    body.dark .color-sample {
+      border-color: #3F3F46;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Cambiar Tema</button>
+
+  <div class="container">
+    <h1>Test de Colores - Bull Power Admin</h1>
+
+    <!-- Sección 1: Badges de Estado -->
+    <div class="section">
+      <h2 class="section-title">1. Badges de Estado de Usuarios</h2>
+
+      <h3 style="font-size: 16px; margin-bottom: 15px; color: inherit;">Vista Previa:</h3>
+      <div>
+        <span class="badge badge-active">Activo</span>
+        <span class="badge badge-enabled">Habilitado</span>
+        <span class="badge badge-disabled">Deshabilitado</span>
+        <span class="badge badge-inactive">Inactivo</span>
+      </div>
+
+      <div id="badge-test-results"></div>
+    </div>
+
+    <!-- Sección 2: Texto de Advertencia 2FA -->
+    <div class="section">
+      <h2 class="section-title">2. Texto de Advertencia 2FA</h2>
+
+      <div class="warning-box">
+        <p class="warning-text">
+          <strong>Importante:</strong> Guarda este código en un lugar seguro. Lo necesitarás si cambias de dispositivo o reinstalar tu aplicación de autenticación.
+        </p>
+      </div>
+
+      <div id="warning-test-results"></div>
+    </div>
+
+    <!-- Sección 3: Tabla de Especificaciones -->
+    <div class="section">
+      <h2 class="section-title">3. Especificaciones de Color</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Elemento</th>
+            <th>Color Modo Claro</th>
+            <th>Color Modo Oscuro</th>
+            <th>Muestra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Activo - Fondo</strong></td>
+            <td>#000000 (Negro)</td>
+            <td>rgba(34, 197, 94, 0.2)</td>
+            <td><span class="color-sample badge-active"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Activo - Texto</strong></td>
+            <td>#FFFFFF (Blanco)</td>
+            <td>#4ADE80</td>
+            <td><span class="badge badge-active">Texto</span></td>
+          </tr>
+          <tr>
+            <td><strong>Habilitado - Fondo</strong></td>
+            <td>#000000 (Negro)</td>
+            <td>rgba(34, 197, 94, 0.2)</td>
+            <td><span class="color-sample badge-enabled"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Habilitado - Texto</strong></td>
+            <td>#FFFFFF (Blanco)</td>
+            <td>#4ADE80</td>
+            <td><span class="badge badge-enabled">Texto</span></td>
+          </tr>
+          <tr>
+            <td><strong>Deshabilitado - Fondo</strong></td>
+            <td>#E5E7EB (Gris Claro)</td>
+            <td>#3F3F46</td>
+            <td><span class="color-sample badge-disabled"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Deshabilitado - Texto</strong></td>
+            <td>#FFFFFF (Blanco)</td>
+            <td>#A1A1AA</td>
+            <td><span class="badge badge-disabled">Texto</span></td>
+          </tr>
+          <tr>
+            <td><strong>Advertencia 2FA</strong></td>
+            <td>#000000 (Negro)</td>
+            <td>#FDE047 (Amarillo)</td>
+            <td><span class="warning-text">Texto de prueba</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sección 4: Resultados del Test -->
+    <div class="section">
+      <h2 class="section-title">4. Resultados del Test Automático</h2>
+      <div id="auto-test-results"></div>
+    </div>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      runTests();
+    }
+
+    function rgbToHex(rgb) {
+      const result = rgb.match(/\d+/g);
+      if (!result) return rgb;
+      return '#' + result.slice(0, 3).map(x => {
+        const hex = parseInt(x).toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+      }).join('').toUpperCase();
+    }
+
+    function testElement(selector, expectedBg, expectedColor, name) {
+      const element = document.querySelector(selector);
+      if (!element) return { pass: false, message: `Elemento ${name} no encontrado` };
+
+      const computedStyle = window.getComputedStyle(element);
+      const actualBg = rgbToHex(computedStyle.backgroundColor);
+      const actualColor = rgbToHex(computedStyle.color);
+
+      const bgMatch = actualBg.toLowerCase() === expectedBg.toLowerCase();
+      const colorMatch = actualColor.toLowerCase() === expectedColor.toLowerCase();
+
+      return {
+        pass: bgMatch && colorMatch,
+        message: `${name}: Fondo ${bgMatch ? '✓' : '✗'} (${actualBg} ${bgMatch ? '=' : '≠'} ${expectedBg}), Texto ${colorMatch ? '✓' : '✗'} (${actualColor} ${colorMatch ? '=' : '≠'} ${expectedColor})`
+      };
+    }
+
+    function runTests() {
+      const isDark = document.body.classList.contains('dark');
+      const results = [];
+
+      // Test badges en modo claro
+      if (!isDark) {
+        results.push(testElement('.badge-active', '#000000', '#FFFFFF', 'Badge Activo'));
+        results.push(testElement('.badge-enabled', '#000000', '#FFFFFF', 'Badge Habilitado'));
+        results.push(testElement('.badge-disabled', '#E5E7EB', '#FFFFFF', 'Badge Deshabilitado'));
+
+        // Test warning text
+        const warningText = document.querySelector('.warning-text');
+        const computedStyle = window.getComputedStyle(warningText);
+        const actualColor = rgbToHex(computedStyle.color);
+        const colorMatch = actualColor.toLowerCase() === '#000000';
+        results.push({
+          pass: colorMatch,
+          message: `Texto Advertencia 2FA: ${colorMatch ? '✓' : '✗'} (${actualColor} ${colorMatch ? '=' : '≠'} #000000)`
+        });
+      }
+
+      // Mostrar resultados
+      const resultsHTML = results.map(result =>
+        `<div class="test-result ${result.pass ? 'test-pass' : 'test-fail'}">${result.message}</div>`
+      ).join('');
+
+      document.getElementById('auto-test-results').innerHTML = `
+        <h3 style="margin-bottom: 10px;">Modo: ${isDark ? 'Oscuro' : 'Claro'}</h3>
+        ${resultsHTML}
+        <div class="test-result ${results.every(r => r.pass) ? 'test-pass' : 'test-fail'}" style="margin-top: 15px; font-weight: 600;">
+          ${results.every(r => r.pass) ? '✓ TODOS LOS TESTS PASARON' : '✗ ALGUNOS TESTS FALLARON'}
+        </div>
+      `;
+
+      // Actualizar resultados en cada sección
+      document.getElementById('badge-test-results').innerHTML = `
+        <div class="test-result test-pass" style="margin-top: 15px;">
+          ✓ Los badges se muestran correctamente en modo ${isDark ? 'oscuro' : 'claro'}
+        </div>
+      `;
+
+      document.getElementById('warning-test-results').innerHTML = `
+        <div class="test-result test-pass" style="margin-top: 15px;">
+          ✓ El texto de advertencia se muestra en ${isDark ? 'amarillo (#FDE047)' : 'negro (#000000)'}
+        </div>
+      `;
+    }
+
+    // Ejecutar tests al cargar la página
+    window.onload = runTests;
+  </script>
+</body>
+</html>

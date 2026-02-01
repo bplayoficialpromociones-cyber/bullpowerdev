@@ -1,0 +1,64 @@
+/*
+ * TEMA CLARO - Bull Power Admin
+ * Ruta: /tmp/cc-agent/62364320/project/src/styles/theme-light.css
+ * Este archivo contiene todos los estilos y variables del tema claro
+ */
+
+@layer base {
+  :root,
+  .light {
+    /* Light Mode Colors */
+    --bg-primary: #F4F4F5;
+    --bg-surface: #FFFFFF;
+    --color-primary: #0D9488;
+    --color-primary-hover: #0F766E;
+    --text-primary: #27272A;
+    --text-secondary: #71717A;
+    --accent-hover: #CCFBF1;
+    --border-color: #E4E4E7;
+
+    /* Semantic Colors */
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+    --color-warning: #F59E0B;
+    --color-info: #3ABFF8;
+
+    /* Badge Colors - Modo Claro */
+    --badge-active-bg: #000000;
+    --badge-active-text: #FFFFFF;
+    --badge-enabled-bg: #000000;
+    --badge-enabled-text: #FFFFFF;
+    --badge-disabled-bg: #000000;
+    --badge-disabled-text: #FFFFFF;
+    --badge-inactive-bg: #FEE2E2;
+    --badge-inactive-text: #B91C1C;
+
+    /* 2FA Modal Warning Text */
+    --warning-text: #000000;
+
+    /* Typography Scale */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Spacing Scale (8px system) */
+    --space-1: 0.5rem;   /* 8px */
+    --space-2: 1rem;     /* 16px */
+    --space-3: 1.5rem;   /* 24px */
+    --space-4: 2rem;     /* 32px */
+    --space-5: 2.5rem;   /* 40px */
+    --space-6: 3rem;     /* 48px */
+  }
+}

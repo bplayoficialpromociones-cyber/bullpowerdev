@@ -1,0 +1,63 @@
+/*
+ * TEMA OSCURO - Bull Power Admin
+ * Ruta: /tmp/cc-agent/62364320/project/src/styles/theme-dark.css
+ * Este archivo contiene todos los estilos y variables del tema oscuro
+ */
+
+@layer base {
+  .dark {
+    /* Dark Mode Colors */
+    --bg-primary: #18181B;
+    --bg-surface: #27272A;
+    --color-primary: #2DD4BF;
+    --color-primary-hover: #5EEAD4;
+    --text-primary: #F4F4F5;
+    --text-secondary: #A1A1AA;
+    --accent-hover: #134E4A;
+    --border-color: #3F3F46;
+
+    /* Semantic Colors (heredadas, pero puedes modificarlas aquí) */
+    --color-success: #22C55E;
+    --color-error: #EF4444;
+    --color-warning: #F59E0B;
+    --color-info: #3ABFF8;
+
+    /* Badge Colors - Modo Oscuro */
+    --badge-active-bg: rgba(34, 197, 94, 0.2);
+    --badge-active-text: #4ADE80;
+    --badge-enabled-bg: #000000;
+    --badge-enabled-text: #FFFFFF;
+    --badge-disabled-bg: #000000;
+    --badge-disabled-text: #FFFFFF;
+    --badge-inactive-bg: rgba(239, 68, 68, 0.2);
+    --badge-inactive-text: #F87171;
+
+    /* 2FA Modal Warning Text */
+    --warning-text: #FDE047;
+
+    /* Typography Scale (heredadas de light) */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+
+    /* Font Weights (heredadas de light) */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Spacing Scale (heredadas de light) */
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 2.5rem;
+    --space-6: 3rem;
+  }
+}

@@ -1,0 +1,130 @@
+/* Importar temas separados */
+@import './styles/theme-light.css';
+@import './styles/theme-dark.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-[var(--border-color)];
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)];
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+    font-weight: var(--font-normal);
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[var(--text-primary)];
+    font-weight: var(--font-semibold);
+    line-height: 1.2;
+  }
+
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+  h4 { font-size: var(--text-xl); }
+  h5 { font-size: var(--text-lg); }
+  h6 { font-size: var(--text-base); }
+}
+
+@layer utilities {
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .bg-surface {
+    background-color: var(--bg-surface);
+  }
+
+  .bg-primary-color {
+    background-color: var(--color-primary);
+  }
+
+  .text-primary-color {
+    color: var(--color-primary);
+  }
+
+  /* Badge Styles */
+  .badge-active {
+    background-color: var(--badge-active-bg);
+    color: var(--badge-active-text);
+  }
+
+  .badge-enabled {
+    background-color: var(--badge-enabled-bg);
+    color: var(--badge-enabled-text);
+  }
+
+  .badge-disabled {
+    background-color: var(--badge-disabled-bg);
+    color: var(--badge-disabled-text);
+  }
+
+  .badge-inactive {
+    background-color: var(--badge-inactive-bg);
+    color: var(--badge-inactive-text);
+  }
+
+  .warning-text-color {
+    color: var(--warning-text);
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+  }
+}
